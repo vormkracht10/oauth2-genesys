@@ -1,4 +1,4 @@
-<?php 
+<?php
 
 namespace Vormkracht10\OAuth2Genesys\Token;
 
@@ -21,10 +21,10 @@ class GenesysAccessToken extends AccessToken
      */
     public function __construct(array $options = [])
     {
-        if (!empty($options['scope'])) {
+        if (! empty($options['scope'])) {
             $this->scope = $options['scope'];
         }
-        if (!empty($options['info'])) {
+        if (! empty($options['info'])) {
             $this->info = $options['info'];
         }
         parent::__construct($options);
@@ -38,6 +38,7 @@ class GenesysAccessToken extends AccessToken
         if (empty($this->scope)) {
             return [];
         }
+
         return array_filter(explode(' ', $this->scope));
     }
 
@@ -61,6 +62,7 @@ class GenesysAccessToken extends AccessToken
                 return true;
             }
         }
+
         return false;
     }
 
@@ -75,7 +77,7 @@ class GenesysAccessToken extends AccessToken
             $parameters['scope'] = $this->scope;
         }
 
-        if (!empty($this->info)) {
+        if (! empty($this->info)) {
             $parameters['info'] = $this->info;
         }
 

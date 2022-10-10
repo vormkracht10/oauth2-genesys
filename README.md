@@ -1,7 +1,9 @@
 # Genesys Provider for OAauth 2.0 Client
 
-[![Latest Version on Packagist](https://img.shields.io/packagist/v/vormkracht10/oauth2-genesys.svg?style=flat-square)](https://packagist.org/packages/vormkracht10/oauth2-genesys)
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/vormkracht10/oauth2-genesys)
 [![Tests](https://github.com/vormkracht10/oauth2-genesys/actions/workflows/run-tests.yml/badge.svg?branch=main)](https://github.com/vormkracht10/oauth2-genesys/actions/workflows/run-tests.yml)
+![Packagist PHP Version Support](https://img.shields.io/packagist/php-v/vormkracht10/oauth2-genesys)
+[![Latest Version on Packagist](https://img.shields.io/packagist/v/vormkracht10/oauth2-genesys.svg?style=flat-square)](https://packagist.org/packages/vormkracht10/oauth2-genesys)
 [![Total Downloads](https://img.shields.io/packagist/dt/vormkracht10/oauth2-genesys.svg?style=flat-square)](https://packagist.org/packages/vormkracht10/oauth2-genesys)
 
 This package provides Genesys OAuth 2.0 support for the PHP League's OAuth 2.0 Client.

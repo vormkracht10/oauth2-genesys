@@ -18,6 +18,78 @@ class Genesys extends AbstractProvider
 
     public const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'info.id';
 
+    public string $apiDomain = 'https://api.mypurecloud.com/api/v2';
+
+    public string $authDomain = 'https://login.mypurecloud.com';
+
+    public function __construct(array $options = [])
+    {
+        if (isset($options['region'])) {
+            $this->setRegion($options['region']);
+        }
+    }
+
+    /**
+     * Set the correct API and Auth domains based on the region
+     * @see https://developer.genesys.cloud/platform/api/
+     *
+     * @param string $region
+     * @return void
+     */
+    private function setRegion(string $region): void 
+    {
+        switch ($region) {
+            case 'us-east-1':
+                $this->apiDomain = 'https://api.mypurecloud.com';
+                $this->authDomain = 'https://login.mypurecloud.com';
+                break;
+            case 'us-east-2':
+                $this->apiDomain = 'https://api.use2.us-gov-pure.cloud';
+                $this->authDomain = 'https://login.use2.us-gov-pure.cloud';
+                break;
+            case 'us-west-2':
+                $this->apiDomain = 'https://api.usw2.pure.cloud';
+                $this->authDomain = 'https://login.usw2.pure.cloud';
+                break;
+            case 'ca-central-1':
+                $this->apiDomain = 'https://api.cac1.pure.cloud';
+                $this->authDomain = 'https://login.cac1.pure.cloud';
+                break;
+            case 'sa-east-1':
+                $this->apiDomain = 'https://api.sae1.pure.cloud';
+                $this->authDomain = 'https://login.sae1.pure.cloud';
+                break;
+            case 'eu-central-1':
+                $this->apiDomain = 'https://api.mypurecloud.de';
+                $this->authDomain = 'https://login.mypurecloud.de';
+                break;  
+            case 'eu-west-1':
+                $this->apiDomain = 'https://api.mypurecloud.ie';
+                $this->authDomain = 'https://login.mypurecloud.ie';
+                break;
+            case 'eu-west-2':
+                $this->apiDomain = 'https://api.euw2.pure.cloud';
+                $this->authDomain = 'https://login.euw2.pure.cloud';
+                break;
+            case 'ap-south-1':
+                $this->apiDomain = 'https://api.aps1.pure.cloud';
+                $this->authDomain = 'https://login.aps1.pure.cloud';
+                break;
+            case 'ap-northeast-2':
+                $this->apiDomain = 'https://api.apne2.pure.cloud';
+                $this->authDomain = 'https://login.apne2.pure.cloud';
+                break;  
+            case 'ap-southeast-2':
+                $this->apiDomain = 'https://api.mypurecloud.com.au';
+                $this->authDomain = 'https://login.mypurecloud.com.au';
+                break;
+            case 'ap-northeast-1':
+                $this->apiDomain = 'https://api.mypurecloud.jp';
+                $this->authDomain = 'https://login.mypurecloud.jp';              
+                break;
+        }
+    }
+
     /**
      * Get authorization url to begin OAuth flow
      *

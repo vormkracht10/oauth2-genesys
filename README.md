@@ -18,6 +18,10 @@ composer require vormkracht10/oauth2-genesys
 
 Usage is the same as The League's OAuth client, using `\Vormkracht10\OAuth2Genesys\Provider\Genesys` as the provider.
 
+### Defining the region
+
+Because Genesys uses different endpoints for different regions, you need to define the region you want to use. This can be done by passing the region as parameter to the constructor. By default the region is set to `us-east-1`. All regions and their endpoints can be found in the Genesys API documentation [here](https://developer.genesys.cloud/platform/api/).
+
 ### Authorization Code Flow
 
 ```php
@@ -25,6 +29,7 @@ require_once('./vendor/autoload.php');
 session_start();
 
 $provider = new \Vormkracht10\OAuth2Genesys\Provider\Genesys([
+    'region'            => 'us-west-2',
     'clientId'          => '{genesys-client-id}',
     'clientSecret'      => '{genesys-client-secret}',
     'redirectUri'       => 'https://example.com/callback-url',

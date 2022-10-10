@@ -1,23 +1,22 @@
-<?php 
+<?php
 
 namespace Vormkracht10\OAuth2Genesys\Provider;
 
-use Psr\Http\Message\ResponseInterface;
-use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Grant\AbstractGrant;
 use League\OAuth2\Client\Provider\AbstractProvider;
+use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
+use League\OAuth2\Client\Provider\ResourceOwnerInterface;
+use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Token\AccessTokenInterface;
 use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
+use Psr\Http\Message\ResponseInterface;
 use Vormkracht10\OAuth2Genesys\Token\GenesysAccessToken;
-use League\OAuth2\Client\Provider\ResourceOwnerInterface;
-use Vormkracht10\OAuth2Genesys\Provider\GenesysResourceOwner;
-use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
 
-class Genesys extends AbstractProvider 
+class Genesys extends AbstractProvider
 {
     use BearerAuthorizationTrait;
 
-    const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'info.id';
+    public const ACCESS_TOKEN_RESOURCE_OWNER_ID = 'info.id';
 
     /**
      * Get authorization url to begin OAuth flow
@@ -44,13 +43,13 @@ class Genesys extends AbstractProvider
      * Get provider url to fetch user details
      *
      * @param AccessToken $token
-     * 
+     *
      * @return string
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
         return 'https://api.mypurecloud.com/api/v2/users/me?' . http_build_query([
-            'access_token' => $token->getToken()
+            'access_token' => $token->getToken(),
         ]);
     }
 

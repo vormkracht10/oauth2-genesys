@@ -24,6 +24,8 @@ class Genesys extends AbstractProvider
 
     public function __construct(array $options = [])
     {
+        parent::__construct($options);
+
         if (isset($options['region'])) {
             $this->setRegion($options['region']);
         }
@@ -97,7 +99,7 @@ class Genesys extends AbstractProvider
      */
     public function getBaseAuthorizationUrl(): string
     {
-        return 'https://login.mypurecloud.com/oauth/authorize';
+        return $this->authDomain . '/oauth/authorize';
     }
 
     /**
@@ -108,7 +110,7 @@ class Genesys extends AbstractProvider
      */
     public function getBaseAccessTokenUrl(array $params): string
     {
-        return 'https://login.mypurecloud.com/oauth/token';
+        return $this->authDomain . '/oauth/token';
     }
 
     /**
@@ -120,7 +122,7 @@ class Genesys extends AbstractProvider
      */
     public function getResourceOwnerDetailsUrl(AccessToken $token)
     {
-        return 'https://api.mypurecloud.com/api/v2/users/me?' . http_build_query([
+        return $this->apiDomain . '/users/me?' . http_build_query([
             'access_token' => $token->getToken(),
         ]);
     }

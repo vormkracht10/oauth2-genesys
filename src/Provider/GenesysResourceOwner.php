@@ -9,7 +9,7 @@ class GenesysResourceOwner implements ResourceOwnerInterface
     /**
      * Raw response
      *
-     * @var
+     * @var array
      */
     protected $response;
 

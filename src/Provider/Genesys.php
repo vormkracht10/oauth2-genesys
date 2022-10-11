@@ -194,6 +194,6 @@ class Genesys extends AbstractProvider
      */
     protected function createAccessToken(array $response, AbstractGrant $grant): AccessTokenInterface
     {
-        return new GenesysAccessToken($response);
+        return new AccessToken($response);
     }
 }

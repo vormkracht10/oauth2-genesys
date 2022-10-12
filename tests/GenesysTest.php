@@ -1,9 +1,9 @@
 <?php
 
-use Mockery;
-use League\OAuth2\Client\Token\AccessToken;
-use Vormkracht10\OAuth2Genesys\Provider\Genesys;
 use League\OAuth2\Client\Provider\Exception\IdentityProviderException;
+use League\OAuth2\Client\Token\AccessToken;
+use Mockery;
+use Vormkracht10\OAuth2Genesys\Provider\Genesys;
 
 class GenesysTest extends \PHPUnit\Framework\TestCase
 {
@@ -19,12 +19,12 @@ class GenesysTest extends \PHPUnit\Framework\TestCase
         return $method;
     }
 
-    protected function setUp(): void 
+    protected function setUp(): void
     {
         $this->provider = new Genesys([
-            'clientId'      => 'mock_client_id',
-            'clientSecret'  => 'mock_secret',
-            'redirectUri'   => 'none',
+            'clientId' => 'mock_client_id',
+            'clientSecret' => 'mock_secret',
+            'redirectUri' => 'none',
         ]);
     }
 
@@ -113,7 +113,7 @@ class GenesysTest extends \PHPUnit\Framework\TestCase
 
         $token = $this->provider->getAccessToken('authorization_code', ['code' => 'mock_authorization_code']);
         $user = $this->provider->getResourceOwner($token);
-     
+
         $this->assertEquals($response_data['id'], $user->getId());
     }
 
@@ -140,6 +140,5 @@ class GenesysTest extends \PHPUnit\Framework\TestCase
         $this->expectException(IdentityProviderException::class);
 
         $this->provider->getAccessToken('authorization_code', ['code' => 'mock_authorization_code']);
-
     }
 }

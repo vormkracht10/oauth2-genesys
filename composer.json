@@ -37,8 +37,8 @@
         }
     },
     "scripts": {
-        "test": "vendor/bin/pest",
-        "test-coverage": "vendor/bin/pest --coverage",
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage",
         "format": "vendor/bin/php-cs-fixer fix --allow-risky=yes"
     },
     "config": {

@@ -15,8 +15,6 @@ class Genesys extends AbstractProvider
 {
     use BearerAuthorizationTrait;
 
-    public const ACCESS_TOKEN_RESOURCE_OWNER_ID = null;
-
     public string $apiDomain = 'https://api.mypurecloud.com/api/v2';
 
     public string $authDomain = 'https://login.mypurecloud.com';

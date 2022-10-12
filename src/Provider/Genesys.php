@@ -10,7 +10,6 @@ use League\OAuth2\Client\Token\AccessToken;
 use League\OAuth2\Client\Token\AccessTokenInterface;
 use League\OAuth2\Client\Tool\BearerAuthorizationTrait;
 use Psr\Http\Message\ResponseInterface;
-use Vormkracht10\OAuth2Genesys\Token\GenesysAccessToken;
 
 class Genesys extends AbstractProvider
 {

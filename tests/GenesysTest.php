@@ -11,7 +11,7 @@ class GenesysTest extends \PHPUnit\Framework\TestCase
 
     protected static function getMethod($name)
     {
-        $class = new ReflectionClass('ChrisHemmings\OAuth2\Client\Provider\DigitalOcean');
+        $class = new ReflectionClass(Genesys::class);
 
         $method = $class->getMethod($name);
         $method->setAccessible(true);

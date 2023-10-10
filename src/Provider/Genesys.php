@@ -163,7 +163,6 @@ class Genesys extends AbstractProvider
             throw new IdentityProviderException(
                 $data['error'] ?? $response->getReasonPhrase(),
                 $response->getStatusCode(),
-                /** @phpstan-ignore-next-line */
                 $response
             );
         }
